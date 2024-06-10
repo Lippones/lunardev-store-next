@@ -9,6 +9,8 @@ import { ProductsListSkeleton } from './products-list-skeleton'
 export function ProductsList() {
   const searchParams = useSearchParams()
 
+  const categoryId = Number(searchParams.get('category')) ?? undefined
+
   const [priceMin, priceMax] = searchParams
     .get('priceRange')
     ?.split(',')
@@ -17,18 +19,17 @@ export function ProductsList() {
   const title = searchParams.get('q') ?? undefined
 
   const { data: products, isLoading: isLoadingProducts } = useQuery({
-    queryKey: ['products', priceMax, priceMin, title],
+    queryKey: ['products', priceMax, priceMin, title, categoryId],
     queryFn: () =>
       getAllProducts({
         page: 1,
         category: 1,
+        categoryId,
         priceMax,
         priceMin,
         title,
       }),
   })
-
-  console.log('products', products)
 
   return (
     <div>

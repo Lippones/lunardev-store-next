@@ -7,6 +7,7 @@ interface getAllProductsProps {
   priceMin?: number
   priceMax?: number
   category?: number
+  categoryId?: number | undefined
 }
 
 export async function getAllProducts({
@@ -15,6 +16,7 @@ export async function getAllProducts({
   priceMin,
   priceMax,
   category,
+  categoryId,
 }: getAllProductsProps) {
   const { data } = await api.get<Product[]>('/products', {
     params: {
@@ -24,6 +26,7 @@ export async function getAllProducts({
       price_min: priceMin,
       price_max: priceMax,
       category,
+      categoryId,
     },
   })
 

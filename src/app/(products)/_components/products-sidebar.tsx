@@ -13,9 +13,13 @@ import { useUrlState } from '@/hooks/use-url-state'
 import { ListFilter, X } from 'lucide-react'
 import { useState } from 'react'
 import { SearchProducts } from './search-product'
+import { CategoryList } from './category-list'
 
 export function ProductsSidebar() {
   const { searchParams, setState } = useUrlState()
+  const [temporaryPriceRange, setTemporaryPriceRange] = useState<
+    [number, number] | null
+  >([0, 10000])
 
   const [priceMin, priceMax] = searchParams
     .get('priceRange')
@@ -26,6 +30,7 @@ export function ProductsSidebar() {
 
   function handlePriceChange(value: [number, number]) {
     setState('priceRange', value.join(','))
+    setTemporaryPriceRange(value)
   }
 
   return (
@@ -51,6 +56,7 @@ export function ProductsSidebar() {
       >
         <SidebarHeader className="relative">
           <SidebarTitle>Categorias</SidebarTitle>
+          <CategoryList />
           <button
             onClick={() => setOpen(false)}
             className="absolute right-0 top-0 lg:hidden"
@@ -64,24 +70,55 @@ export function ProductsSidebar() {
             <SearchProducts />
           </SidebarItem>
           <SidebarItem>
-            <button>De R$ 50 a R$ 100</button>
+            <button
+              onClick={() => {
+                handlePriceChange([0, 50])
+              }}
+            >
+              De R$ 50 a R$ 100
+            </button>
           </SidebarItem>
           <SidebarItem>
-            <button>De R$ 100 a R$ 150</button>
+            <button
+              onClick={() => {
+                handlePriceChange([100, 150])
+              }}
+            >
+              De R$ 100 a R$ 150
+            </button>
           </SidebarItem>
           <SidebarItem>
-            <button>De R$ 150 a R$ 200</button>
+            <button
+              onClick={() => {
+                handlePriceChange([150, 200])
+              }}
+            >
+              De R$ 150 a R$ 200
+            </button>
           </SidebarItem>
           <SidebarItem>
-            <button>Acima de R$ 200</button>
+            <button
+              onClick={() => {
+                handlePriceChange([0, 200])
+              }}
+            >
+              Acima de R$ 200
+            </button>
           </SidebarItem>
           <SidebarItem className="mt-10">
             <div className="w-full flex flex-col gap-4">
               <div className="flex justify-between items-center">
-                <span>R$ {priceMin}</span> - <span>R$ {priceMax}</span>
+                <span>
+                  R$ {temporaryPriceRange ? temporaryPriceRange[0] : priceMin}
+                </span>{' '}
+                -{' '}
+                <span>
+                  R$ {temporaryPriceRange ? temporaryPriceRange[1] : priceMax}
+                </span>
               </div>
               <PriceSlider
                 setValue={handlePriceChange}
+                onChange={setTemporaryPriceRange}
                 value={[priceMin, priceMax]}
               />
             </div>
