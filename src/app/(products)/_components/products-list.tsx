@@ -35,9 +35,13 @@ export function ProductsList() {
       {isLoadingProducts ? (
         <ProductsListSkeleton />
       ) : (
-        <ul className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <ul className="flex flex-wrap gap-4 justify-center sm:justify-start">
           {products?.map((product) => (
-            <li key={product.id} className="">
+            <li
+              key={product.id}
+              // I used flex instead of grid because it looks better when there are less than 4 products
+              className="flex-1 min-w-full sm:min-w-[calc(50%-1rem)] md:min-w-[calc(33%-1rem)] xl:min-w-[calc(25%-1rem)] max-w-[358px] max-sm:mx-auto"
+            >
               <Link href={`/product/${product.id}`}>
                 <ProductCard product={product} />
               </Link>

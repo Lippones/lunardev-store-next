@@ -9,10 +9,10 @@ import {
   SidebarFooter,
 } from '@/components/sidebar'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { useUrlState } from '@/hooks/use-url-state'
 import { ListFilter, X } from 'lucide-react'
 import { useState } from 'react'
+import { SearchProducts } from './search-product'
 
 export function ProductsSidebar() {
   const { searchParams, setState } = useUrlState()
@@ -30,33 +30,38 @@ export function ProductsSidebar() {
 
   return (
     <>
-      <Button
-        onClick={() => setOpen(!open)}
-        variant="outline"
-        className="md:hidden max-w-fit"
-      >
-        Filtros <ListFilter className="size-4 ml-2" />
-      </Button>
+      <div className="flex gap-2 items-center">
+        <div className="lg:hidden w-full">
+          <SearchProducts />
+        </div>
+        <Button
+          onClick={() => setOpen(!open)}
+          variant="outline"
+          className="lg:hidden max-w-fit"
+        >
+          Filtros <ListFilter className="size-4 ml-2" />
+        </Button>
+      </div>
       <div
         className={`fixed inset-0 bg-gray-600 bg-opacity-50 transition-opacity ${open ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         onClick={() => setOpen(false)}
       />
       <Sidebar
-        className={`transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 ${open ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 md:static md:w-auto`}
+        className={`transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 ${open ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:static lg:w-auto`}
       >
         <SidebarHeader className="relative">
           <SidebarTitle>Categorias</SidebarTitle>
           <button
             onClick={() => setOpen(false)}
-            className="absolute right-0 top-0 md:hidden"
+            className="absolute right-0 top-0 lg:hidden"
           >
             <X />
           </button>
         </SidebarHeader>
         <SidebarMain className="space-y-4 h-full">
           <SidebarTitle>Preços</SidebarTitle>
-          <SidebarItem>
-            <Input type="text" placeholder="Search product" />
+          <SidebarItem className="max-lg:hidden">
+            <SearchProducts />
           </SidebarItem>
           <SidebarItem>
             <button>De R$ 50 a R$ 100</button>

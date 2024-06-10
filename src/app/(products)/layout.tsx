@@ -6,9 +6,11 @@ export default function ProductsLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="min-h-svh flex flex-col md:flex-row p-6">
+    <div className="min-h-svh flex flex-col lg:flex-row p-6">
       <ProductsSidebar />
-      <div className="flex flex-1 flex-col gap-4 md:px-8 pt-6">{children}</div>
+      <div className="flex flex-1 flex-col gap-4 max-lg:mt-6 lg:px-8">
+        {children}
+      </div>
     </div>
   )
 }
