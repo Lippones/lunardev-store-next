@@ -2,11 +2,12 @@ import { User2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { CartButton } from './cart-button'
+import { ToggleTheme } from './toggle-theme'
 
 export function Header() {
   return (
-    <header className="border-b border-zinc-200 overflow-x-hidden">
-      <div className="py-2 bg-violet-600 flex items-center justify-center w-full">
+    <header className="border-b  overflow-x-hidden">
+      <div className="py-2 bg-primary flex items-center justify-center w-full">
         <span className="font-medium text-sm text-white">
           Feito com ❤️ por Filipe Vieira da Silva
         </span>
@@ -22,10 +23,11 @@ export function Header() {
           </Link>
           <div className="flex items-center gap-4">
             <CartButton />
-            <button className="hover:text-violet-600">
+            <button className="hover:text-primary">
               <User2 className="size-5" />
               <span className="sr-only">Profile</span>
             </button>
+            <ToggleTheme />
           </div>
         </div>
       </div>

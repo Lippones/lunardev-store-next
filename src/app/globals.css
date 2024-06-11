@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  @apply antialiased font-sans;
+@layer base {
+  :root {
+    --primary: #822CF2;
+    --card: #fafafa
+    --background: #FFFFFF;
+    --foreground: #212427;
+    --muted: #71717A;
+    --border: #e4e4e7;
+  }
+
+  .dark {
+    --primary: #822CF2;
+    --card: #18181b;
+    --background: #0C0C0D;
+    --foreground: #FFFFFF;
+    --muted: #a1a1aa;
+    --border: #52525B;
+  }
+}
+
+@layer base {
+  * {
+    @apply antialiased font-sans border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

@@ -21,7 +21,7 @@ export function CategoryList() {
         <li key={category.id}>
           <SidebarItem>
             <button
-              className={`${currentCategory === category.id.toString() ? 'text-violet-600' : ''}`}
+              className={`${currentCategory === category.id.toString() ? 'text-primary' : ''}`}
               onClick={() => {
                 setState('category', category.id.toString())
               }}

@@ -3,12 +3,12 @@ import { twMerge } from 'tailwind-merge'
 import { VariantProps, tv } from 'tailwind-variants'
 
 const buttonVariants = tv({
-  base: 'inline-flex items-center text-sm justify-center font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-600 disabled:pointer-events-none disabled:opacity-50',
+  base: 'inline-flex items-center text-sm justify-center font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:pointer-events-none disabled:opacity-50',
   variants: {
     variant: {
-      default: 'bg-violet-600 text-white',
+      default: 'bg-primary text-white',
       secondary: 'bg-zinc-900 text-white',
-      outline: 'border border-zinc-200',
+      outline: 'border ',
     },
     size: {
       default: 'h-10 px-4 py-2',

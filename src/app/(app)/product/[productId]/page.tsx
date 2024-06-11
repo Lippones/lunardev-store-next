@@ -46,7 +46,7 @@ export default async function Product({ params: { productId } }: ProductPage) {
         />
         <div className="flex flex-col gap-y-4 max-md:col-span-2 min-w-full">
           <h1 className="text-4xl font-bold">{product.title}</h1>
-          <p className="font-semibold text-lg text-violet-600">
+          <p className="font-semibold text-lg text-primary">
             {ConvertNumberToBRL(product.price)}
           </p>
           <p className="text-sm text-zinc-600 ">{product.description}</p>

@@ -54,7 +54,7 @@ export function CartSheet({ children }: CartSheetProps) {
               onClick={() => setIsOpen(false)}
             />
             <motion.div
-              className="fixed bg-white shadow-lg top-0 right-0 w-[400px] h-full z-50"
+              className="fixed bg-card shadow-lg top-0 right-0 w-full md:w-[400px] h-full z-50"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -83,7 +83,7 @@ export function CartSheet({ children }: CartSheetProps) {
                 <div>
                   <p>
                     Total:{' '}
-                    <span className="text-lg font-bold text-violet-600">
+                    <span className="text-lg font-bold text-primary">
                       {ConvertNumberToBRL(calculateTotalPrice())}
                     </span>{' '}
                   </p>
@@ -93,7 +93,7 @@ export function CartSheet({ children }: CartSheetProps) {
                   className="absolute right-6 top-6"
                   onClick={handleOpenCart}
                 >
-                  <X />
+                  <X className="text-muted" />
                 </button>
               </div>
             </motion.div>
@@ -158,7 +158,7 @@ export function CardItem({
         </div>
         <div>
           <p className="text-sm text-zinc-500">Subtotal</p>
-          <p className="font-medium text-violet-600">
+          <p className="font-medium text-primary">
             {ConvertNumberToBRL(item.product.price * item.quantity)}
           </p>
         </div>

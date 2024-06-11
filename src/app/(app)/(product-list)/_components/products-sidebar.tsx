@@ -19,12 +19,12 @@ export function ProductsSidebar() {
   const { searchParams, setState } = useUrlState()
   const [temporaryPriceRange, setTemporaryPriceRange] = useState<
     [number, number] | null
-  >([0, 10000])
+  >([0, 500])
 
   const [priceMin, priceMax] = searchParams
     .get('priceRange')
     ?.split(',')
-    .map((value) => Number(value)) || [0, 10000]
+    .map((value) => Number(value)) || [0, 500]
 
   const [open, setOpen] = useState(false)
 
@@ -52,7 +52,7 @@ export function ProductsSidebar() {
         onClick={() => setOpen(false)}
       />
       <Sidebar
-        className={`transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 ${open ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:static lg:w-auto`}
+        className={`transform top-0 left-0 w-64 bg-card fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30 ${open ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:static lg:w-auto`}
       >
         <SidebarHeader className="relative">
           <SidebarTitle>Categorias</SidebarTitle>
@@ -117,6 +117,7 @@ export function ProductsSidebar() {
                 </span>
               </div>
               <PriceSlider
+                max={500}
                 setValue={handlePriceChange}
                 onChange={setTemporaryPriceRange}
                 value={[priceMin, priceMax]}

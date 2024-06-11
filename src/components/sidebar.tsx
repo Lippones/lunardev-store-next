@@ -9,7 +9,7 @@ export function Sidebar({ className, children }: SidebarGenericProps) {
   return (
     <aside
       className={twMerge(
-        'border border-zinc-200 flex bg-zinc-50 flex-col flex-shrink-0 space-y-6 shadow-sm rounded-lg p-6',
+        'border  flex bg-zinc-50 flex-col flex-shrink-0 space-y-6 shadow-sm rounded-r-lg p-6',
         className,
       )}
     >
@@ -36,7 +36,7 @@ export function SidebarItem({ children, className }: SidebarGenericProps) {
   return (
     <div
       className={twMerge(
-        'flex items-center text-zinc-500 text-sm space-x-2',
+        'flex items-center text-muted text-sm space-x-2',
         className,
       )}
     >
@@ -47,9 +47,7 @@ export function SidebarItem({ children, className }: SidebarGenericProps) {
 
 export function SidebarFooter({ className, children }: SidebarGenericProps) {
   return (
-    <footer
-      className={twMerge('p-6 mt-auto border-t border-zinc-200', className)}
-    >
+    <footer className={twMerge('p-6 mt-auto border-t ', className)}>
       {children}
     </footer>
   )

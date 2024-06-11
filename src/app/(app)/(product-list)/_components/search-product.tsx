@@ -23,10 +23,10 @@ export function SearchProducts() {
   return (
     <form
       onSubmit={handleSearch}
-      className="flex h-10 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-violet-600 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+      className="flex h-10 w-full rounded-lg border bg-background px-3 py-2 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-primary focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
     >
       <button>
-        <Search className="w-5 h-5 flex-shrink-0 mr-2 text-violet-600" />
+        <Search className="w-5 h-5 flex-shrink-0 mr-2 text-primary" />
       </button>
 
       <input
