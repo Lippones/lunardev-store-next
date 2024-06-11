@@ -5,13 +5,13 @@ import { CartButton } from './cart-button'
 
 export function Header() {
   return (
-    <header className="border-b border-zinc-200">
+    <header className="border-b border-zinc-200 overflow-x-hidden">
       <div className="py-2 bg-violet-600 flex items-center justify-center w-full">
         <span className="font-medium text-sm text-white">
           Feito com ❤️ por Filipe Vieira da Silva
         </span>
       </div>
-      <div className="container mx-auto px-4">
+      <div className="mx-auto px-6">
         <div className="flex justify-between items-center py-4">
           <Link
             href="/"
