@@ -9,7 +9,7 @@ export function Sidebar({ className, children }: SidebarGenericProps) {
   return (
     <aside
       className={twMerge(
-        'border  flex bg-zinc-50 flex-col flex-shrink-0 space-y-6 shadow-sm rounded-r-lg p-6',
+        'border  flex bg-zinc-50 flex-col flex-shrink-0 space-y-6 shadow-sm rounded-lg p-6',
         className,
       )}
     >

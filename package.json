@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.10.1",
-    "@tanstack/react-query": "^5.40.1",
+    "@tanstack/react-query": "^5.44.0",
     "axios": "^1.7.2",
     "framer-motion": "^11.2.10",
     "lucide-react": "^0.390.0",

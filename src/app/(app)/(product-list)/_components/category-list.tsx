@@ -13,7 +13,7 @@ export function CategoryList() {
     queryFn: getAllCategories,
   })
 
-  const currentCategory = searchParams.get('category')?.toString() ?? '1'
+  const currentCategory = searchParams.get('category')?.toString() ?? undefined
 
   return (
     <ul className="flex gap-2 flex-col mt-2">
