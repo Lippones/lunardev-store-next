@@ -32,3 +32,9 @@ export async function getAllProducts({
 
   return data
 }
+
+export async function getProductById(id: number) {
+  const { data } = await api.get<Product>(`/products/${id}`)
+
+  return data
+}
