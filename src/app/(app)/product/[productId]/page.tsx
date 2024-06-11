@@ -1,15 +1,37 @@
 import { AddToCartButton } from '@/components/add-to-cart-button'
 import { getProductById } from '@/services/products'
 import { ConvertNumberToBRL } from '@/utils/convert-number-to-brl'
+import { Metadata } from 'next'
 import Image from 'next/image'
 
-export default async function Product({
-  params: { productId },
-}: {
+interface ProductPage {
   params: {
     productId: number
   }
-}) {
+}
+
+export async function generateMetadata({
+  params: { productId },
+}: ProductPage): Promise<Metadata> {
+  const product = await getProductById(productId)
+
+  return {
+    title: product.title,
+    description: product.description,
+    openGraph: {
+      type: 'article',
+      images: {
+        alt: product.title,
+        type: 'image/png',
+        width: 1200,
+        height: 1200,
+        url: product.images[0],
+      },
+    },
+  }
+}
+
+export default async function Product({ params: { productId } }: ProductPage) {
   const product = await getProductById(productId)
 
   return (

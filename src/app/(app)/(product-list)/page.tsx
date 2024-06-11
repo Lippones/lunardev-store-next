@@ -1,5 +1,11 @@
 import { SelectGrid } from './_components/select-grid'
 import { ProductsList } from './_components/products-list'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Produtos',
+  description: 'Aqui estão todos os produtos disponíveis.',
+}
 
 export default async function ProductsPage() {
   return (
