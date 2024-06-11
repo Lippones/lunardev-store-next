@@ -88,7 +88,9 @@ export function CartSheet({ children }: CartSheetProps) {
                     </span>{' '}
                   </p>
                 </div>
-                <Button className="mt-6">Finalizar compra</Button>
+                <Button size="lg" className="mt-6">
+                  Finalizar compra
+                </Button>
                 <button
                   className="absolute right-6 top-6"
                   onClick={handleOpenCart}
@@ -127,7 +129,7 @@ export function CardItem({
         />
         <div className="flex flex-col">
           <h4 className="font-bold">{item.product.title}</h4>
-          <p className="text-sm text-zinc-500">{item.product.category.name}</p>
+          <p className="text-sm text-muted">{item.product.category.name}</p>
           <p className="mt-auto font-medium">
             {ConvertNumberToBRL(item.product.price)}
           </p>
@@ -135,7 +137,7 @@ export function CardItem({
       </header>
       <footer className="flex items-center justify-between mt-4">
         <div>
-          <span className="text-sm text-zinc-500">Quantidade</span>
+          <span className="text-sm text-muted">Quantidade</span>
           <div className="flex gap-2 items-center mt-2">
             <Button
               onClick={() => subtractQuantityToCart(item.product.id)}
@@ -157,7 +159,7 @@ export function CardItem({
           </div>
         </div>
         <div>
-          <p className="text-sm text-zinc-500">Subtotal</p>
+          <p className="text-sm text-muted">Subtotal</p>
           <p className="font-medium text-primary">
             {ConvertNumberToBRL(item.product.price * item.quantity)}
           </p>
