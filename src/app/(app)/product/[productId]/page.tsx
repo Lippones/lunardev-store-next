@@ -13,16 +13,16 @@ export default async function Product({
   const product = await getProductById(productId)
 
   return (
-    <div className="max-w-screen-2xl mx-auto flex items-center p-6 min-h-svh">
-      <section className="grid grid-cols-3 items-center">
+    <div className="max-w-screen-2xl mx-auto flex p-6">
+      <section className="grid md:grid-cols-3 md:items-center gap-8 md:gap-12">
         <Image
           width={800}
           height={800}
           src={product.images[0]}
           alt={product.title}
-          className="rounded-lg col-span-2"
+          className="rounded-lg col-span-2 max-md:max-h-[500px] object-cover"
         />
-        <div className="flex flex-col gap-4 px-12">
+        <div className="flex flex-col gap-y-4 max-md:col-span-2 min-w-full">
           <h1 className="text-4xl font-bold">{product.title}</h1>
           <p className="font-semibold text-lg text-violet-600">
             {ConvertNumberToBRL(product.price)}
@@ -34,7 +34,7 @@ export default async function Product({
               {product.category.name}
             </span>
           </div>
-          <AddToCartButton product={product} />
+          <AddToCartButton className="w-full" product={product} />
         </div>
       </section>
     </div>
