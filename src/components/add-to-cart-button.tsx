@@ -2,18 +2,25 @@
 import { ComponentProps } from 'react'
 import { Button } from './ui/button'
 import { twMerge } from 'tailwind-merge'
+import { useCartStore } from '@/store/cart'
+import { Product } from '@/services/products/types'
+import { ShoppingCart } from 'lucide-react'
 
 interface AddToCartButtonProps extends ComponentProps<'button'> {
-  productId: number
+  product: Product
 }
 
 export function AddToCartButton({
-  productId,
+  product,
   className,
   ...rest
 }: AddToCartButtonProps) {
+  const { addItem } = useCartStore((state) => ({
+    addItem: state.addItem,
+  }))
+
   function handleAddToCart() {
-    console.log(`Product with id ${productId} added to cart`)
+    addItem(product)
   }
 
   return (
@@ -23,7 +30,7 @@ export function AddToCartButton({
       className={twMerge('', className)}
       size="lg"
     >
-      Add to Cart
+      <ShoppingCart className="size-4 mr-2" /> Add to Cart
     </Button>
   )
 }

@@ -24,7 +24,9 @@ export default async function Product({
         />
         <div className="flex flex-col gap-4 px-12">
           <h1 className="text-4xl font-bold">{product.title}</h1>
-          <p className="font-semibold">{ConvertNumberToBRL(product.price)}</p>
+          <p className="font-semibold text-lg text-violet-600">
+            {ConvertNumberToBRL(product.price)}
+          </p>
           <p className="text-sm text-zinc-600 ">{product.description}</p>
           <div className="flex justify-between items-center">
             <span className="text-sm text-zinc-400">Categoria</span>
@@ -32,7 +34,7 @@ export default async function Product({
               {product.category.name}
             </span>
           </div>
-          <AddToCartButton productId={product.id} />
+          <AddToCartButton product={product} />
         </div>
       </section>
     </div>
