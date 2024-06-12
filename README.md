@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Lunar Store
 
-## Getting Started
+Bem-vindo à Lunar Store! Este projeto foi desenvolvido como parte de um teste técnico para a empresa Lunar Dev. A aplicação foi construída utilizando React, TypeScript e Tailwind CSS, seguindo boas práticas de desenvolvimento.
 
-First, run the development server:
+## Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+| Funcionalidade                          | Implementada |
+| --------------------------------------- | ------------ |
+| **Tarefa 1: Listagem de Produtos**      | ✔️           |
+| - Nome                                  | ✔️           |
+| - Descrição                             | ✔️           |
+| - Preço                                 | ✔️           |
+| - Imagem                                | ✔️           |
+| **Tarefa 2: Filtro de Produtos**        | ✔️           |
+| - Campo de busca                        | ✔️           |
+| - Filtro por faixa de preço             | ✔️           |
+| **Tarefa 3: Detalhe do Produto**        | ✔️           |
+| - Página de detalhes                    | ✔️           |
+| - Informações detalhadas                | ✔️           |
+| **Tarefa 4: Carrinho de Compras**       | ✔️           |
+| - Adicionar produtos ao carrinho        | ✔️           |
+| - Exibir número de itens no carrinho    | ✔️           |
+| - Página de checkout                    | ✔️           |
+| **Tarefa 5: Simulação de Pagamento**    | ✔️           |
+| - Inserção de detalhes de pagamento     | ✔️           |
+| - Botão "Pagar"                         | ✔️           |
+| - Mensagem de sucesso ou falha          | ✔️           |
+| - Esvaziar carrinho em caso de sucesso  | ✔️           |
+| - Permitir nova tentativa em caso de falha | ✔️        |
+| **Bônus (Opcional)**                    | ✔️           |
+| - Troca de temas (claro/escuro)         | ✔️           |
+| - Animações usando Framer Motion        | ✔️           |
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **Next.js**
+- **Framer Motion**
+- **React Hook Form**
+- **Zustand**
+- **React Query**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Como Executar o Projeto
 
-## Learn More
+Siga as instruções abaixo para rodar o projeto localmente:
 
-To learn more about Next.js, take a look at the following resources:
+1. Instale as dependências:
+   ```bash
+   bun install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Fazer o build:
+   ```bash
+   bun run build
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. Execute o projeto:
+   ```bash
+   bun run start
+   ```
 
-## Deploy on Vercel
+O projeto estará rodando em [http://localhost:3000](http://localhost:3000).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+A aplicação foi deployada na plataforma Vercel e pode ser acessada através do seguinte link:
+
+[Link da Aplicação](https://lunarstore.lippe.dev)
+
+
+## Comentários
+
+- Otimizei a aplicação para garantir a máxima performance, evitando a instalação de muitas dependências desnecessárias.
+- Utilizei SSR de forma eficiente para melhorar o desempenho e a experiência do usuário.
+- Implementei a geração assíncrona dos metadados de cada produto, garantindo que as informações sejam carregadas de maneira rápida e eficiente.
+
+## Contato
+
+Para mais informações, entre em contato:
+
+- **Nome:** Filipe Vieira
+- **Email:** filipe68ft@hotmail.com
+- **LinkedIn:** [Seu LinkedIn](https://www.linkedin.com/in/filipe-vieira-03199720b)
+
+
+Obrigado por avaliar o meu teste técnico! Espero que gostem da Lunar Store.
