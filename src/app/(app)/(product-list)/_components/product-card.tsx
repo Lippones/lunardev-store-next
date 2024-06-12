@@ -8,7 +8,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className="shadow-sm border  rounded-lg overflow-hidden h-full w-full">
+    <div className="shadow-sm border bg-card rounded-lg overflow-hidden h-full w-full">
       <Image
         width={400}
         height={400}

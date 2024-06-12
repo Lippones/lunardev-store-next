@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { ConvertNumberToBRL } from '@/utils/convert-number-to-brl'
 import { Button } from './ui/button'
 import { Product } from '@/services/products/types'
+import { usePathname, useRouter } from 'next/navigation'
 
 interface CartSheetProps {
   children: ReactElement
@@ -15,6 +16,8 @@ interface CartSheetProps {
 
 export function CartSheet({ children }: CartSheetProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
+  const pathName = usePathname()
 
   const { items, addItem, subtractItemQuantity, calculateTotalPrice } =
     useCartStore((state) => ({
@@ -39,6 +42,16 @@ export function CartSheet({ children }: CartSheetProps) {
 
   function handleOpenCart() {
     setIsOpen((prev) => !prev)
+  }
+
+  function handleRedirectToCheckout() {
+    handleOpenCart()
+
+    if (pathName.includes('/checkout')) return
+
+    const randomCheckoutId = Math.random().toString(36).substr(2, 9)
+
+    router.push(`/checkout/${randomCheckoutId}`)
   }
 
   return (
@@ -88,7 +101,13 @@ export function CartSheet({ children }: CartSheetProps) {
                     </span>{' '}
                   </p>
                 </div>
-                <Button className="mt-6">Finalizar compra</Button>
+                <Button
+                  onClick={handleRedirectToCheckout}
+                  size="lg"
+                  className="mt-6"
+                >
+                  Finalizar compra
+                </Button>
                 <button
                   className="absolute right-6 top-6"
                   onClick={handleOpenCart}
@@ -127,7 +146,7 @@ export function CardItem({
         />
         <div className="flex flex-col">
           <h4 className="font-bold">{item.product.title}</h4>
-          <p className="text-sm text-zinc-500">{item.product.category.name}</p>
+          <p className="text-sm text-muted">{item.product.category.name}</p>
           <p className="mt-auto font-medium">
             {ConvertNumberToBRL(item.product.price)}
           </p>
@@ -135,7 +154,7 @@ export function CardItem({
       </header>
       <footer className="flex items-center justify-between mt-4">
         <div>
-          <span className="text-sm text-zinc-500">Quantidade</span>
+          <span className="text-sm text-muted">Quantidade</span>
           <div className="flex gap-2 items-center mt-2">
             <Button
               onClick={() => subtractQuantityToCart(item.product.id)}
@@ -157,7 +176,7 @@ export function CardItem({
           </div>
         </div>
         <div>
-          <p className="text-sm text-zinc-500">Subtotal</p>
+          <p className="text-sm text-muted">Subtotal</p>
           <p className="font-medium text-primary">
             {ConvertNumberToBRL(item.product.price * item.quantity)}
           </p>

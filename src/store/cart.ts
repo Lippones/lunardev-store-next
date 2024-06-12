@@ -11,7 +11,7 @@ interface CartStore {
   items: CartItem[]
   addItem: (productId: Product) => void
   removeItem: (productId: number) => void
-  removeAllItem: (productId: number) => void
+  removeAllItem: () => void
   calculateTotalPrice: () => number
   subtractItemQuantity: (productId: number) => void
 }

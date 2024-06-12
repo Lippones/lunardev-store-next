@@ -49,10 +49,10 @@ export default async function Product({ params: { productId } }: ProductPage) {
           <p className="font-semibold text-lg text-primary">
             {ConvertNumberToBRL(product.price)}
           </p>
-          <p className="text-sm text-zinc-600 ">{product.description}</p>
+          <p className="text-sm text-muted">{product.description}</p>
           <div className="flex justify-between items-center">
-            <span className="text-sm text-zinc-400">Categoria</span>
-            <span className="text-sm text-zinc-400">
+            <span className="text-sm text-zinc-500">Categoria</span>
+            <span className="text-sm text-zinc-500">
               {product.category.name}
             </span>
           </div>

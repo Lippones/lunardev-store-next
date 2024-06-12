@@ -1,7 +1,8 @@
 'use client'
 import { queryClient } from '@/lib/react-query'
 import { QueryClientProvider } from '@tanstack/react-query'
-import { ThemeProvider } from 'next-themes'
+import { ThemeProvider } from './theme-provider'
+import { TransitionPage } from './transition-page'
 
 interface ProvidersProps {
   children: React.ReactNode
@@ -10,8 +11,13 @@ interface ProvidersProps {
 export function Providers({ children }: ProvidersProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-        {children}
+      <ThemeProvider
+        disableTransitionOnChange
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+      >
+        <TransitionPage>{children}</TransitionPage>
       </ThemeProvider>
     </QueryClientProvider>
   )
