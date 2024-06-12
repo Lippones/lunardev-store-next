@@ -5,11 +5,13 @@ import { ConvertNumberToBRL } from '@/utils/convert-number-to-brl'
 import { Trash2 } from 'lucide-react'
 
 export function OrderSummary() {
-  const { items, removeItem, calculateTotalPrice } = useCartStore((state) => ({
-    items: state.items,
-    removeItem: state.removeItem,
-    calculateTotalPrice: state.calculateTotalPrice,
-  }))
+  const { items, subtractItemQuantity, calculateTotalPrice } = useCartStore(
+    (state) => ({
+      items: state.items,
+      subtractItemQuantity: state.subtractItemQuantity,
+      calculateTotalPrice: state.calculateTotalPrice,
+    }),
+  )
 
   const totalProductsPrice = calculateTotalPrice()
   const frete = Math.random() * 100
@@ -28,7 +30,7 @@ export function OrderSummary() {
                 {ConvertNumberToBRL(item.product.price * item.quantity)}
               </span>
               <button
-                onClick={() => removeItem(item.product.id)}
+                onClick={() => subtractItemQuantity(item.product.id)}
                 className="hover:text-primary text-muted"
               >
                 <Trash2 className="size-4" />

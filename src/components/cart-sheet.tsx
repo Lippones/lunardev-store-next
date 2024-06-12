@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { ConvertNumberToBRL } from '@/utils/convert-number-to-brl'
 import { Button } from './ui/button'
 import { Product } from '@/services/products/types'
+import { usePathname, useRouter } from 'next/navigation'
 
 interface CartSheetProps {
   children: ReactElement
@@ -15,6 +16,8 @@ interface CartSheetProps {
 
 export function CartSheet({ children }: CartSheetProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
+  const pathName = usePathname()
 
   const { items, addItem, subtractItemQuantity, calculateTotalPrice } =
     useCartStore((state) => ({
@@ -39,6 +42,16 @@ export function CartSheet({ children }: CartSheetProps) {
 
   function handleOpenCart() {
     setIsOpen((prev) => !prev)
+  }
+
+  function handleRedirectToCheckout() {
+    handleOpenCart()
+
+    if (pathName.includes('/checkout')) return
+
+    const randomCheckoutId = Math.random().toString(36).substr(2, 9)
+
+    router.push(`/checkout/${randomCheckoutId}`)
   }
 
   return (
@@ -88,7 +101,11 @@ export function CartSheet({ children }: CartSheetProps) {
                     </span>{' '}
                   </p>
                 </div>
-                <Button size="lg" className="mt-6">
+                <Button
+                  onClick={handleRedirectToCheckout}
+                  size="lg"
+                  className="mt-6"
+                >
                   Finalizar compra
                 </Button>
                 <button
