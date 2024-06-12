@@ -13,7 +13,6 @@ export function ToggleTheme() {
       className=""
     >
       {theme === 'dark' ? <Sun /> : <Moon />}
-      <span className="sr-only">{theme}</span>
     </button>
   )
 }

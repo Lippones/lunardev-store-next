@@ -14,9 +14,11 @@ import { ListFilter, X } from 'lucide-react'
 import { useState } from 'react'
 import { SearchProducts } from './search-product'
 import { CategoryList } from './category-list'
+import { useRouter } from 'next/navigation'
 
 export function ProductsSidebar() {
   const { searchParams, setState } = useUrlState()
+  const router = useRouter()
   const [temporaryPriceRange, setTemporaryPriceRange] = useState<
     [number, number] | null
   >([0, 500])
@@ -31,6 +33,10 @@ export function ProductsSidebar() {
   function handlePriceChange(value: [number, number]) {
     setState('priceRange', value.join(','))
     setTemporaryPriceRange(value)
+  }
+
+  function handleCleanFilters() {
+    router.replace('/')
   }
 
   return (
@@ -126,7 +132,9 @@ export function ProductsSidebar() {
           </SidebarItem>
         </SidebarMain>
         <SidebarFooter>
-          <Button variant="secondary">Limpar Filtros</Button>
+          <Button onClick={handleCleanFilters} className="w-full">
+            Limpar Filtros
+          </Button>
         </SidebarFooter>
       </Sidebar>
     </>
