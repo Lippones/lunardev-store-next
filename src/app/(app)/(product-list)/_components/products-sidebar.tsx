@@ -105,7 +105,7 @@ export function ProductsSidebar() {
           <SidebarItem>
             <button
               onClick={() => {
-                handlePriceChange([0, 200])
+                handlePriceChange([201, 500])
               }}
             >
               Acima de R$ 200
