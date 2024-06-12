@@ -42,6 +42,12 @@ Bem-vindo à Lunar Store! Este projeto foi desenvolvido como parte de um teste t
 - **Zustand**
 - **React Query**
 
+## API
+
+Utilizei uma API open source e hospedei em meu proprior servidor.
+[Platzi Fake Store API](https://fakeapi.platzi.com)
+[Hospedada no meu servidor](https://fakeproductsapi.lippe.dev/api/v1)
+
 ## Como Executar o Projeto
 
 Siga as instruções abaixo para rodar o projeto localmente:
