@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Product } from '@/services/products/types'
 import { ConvertNumberToBRL } from '@/utils/convert-number-to-brl'
+import { motion } from 'framer-motion'
 
 interface ProductCardProps {
   product: Product
@@ -8,7 +9,11 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className="shadow-sm border bg-card rounded-lg overflow-hidden h-full w-full">
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 1 }}
+      className="shadow-sm border bg-card rounded-lg overflow-hidden h-full w-full"
+    >
       <Image
         width={400}
         height={400}
@@ -26,6 +31,6 @@ export function ProductCard({ product }: ProductCardProps) {
           {ConvertNumberToBRL(product.price)}
         </span>
       </div>
-    </div>
+    </motion.div>
   )
 }

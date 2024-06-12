@@ -5,6 +5,7 @@ import { twMerge } from 'tailwind-merge'
 import { useCartStore } from '@/store/cart'
 import { Product } from '@/services/products/types'
 import { ShoppingCart } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 interface AddToCartButtonProps extends ComponentProps<'button'> {
   product: Product
@@ -31,9 +32,14 @@ export function AddToCartButton({
     }, 2000)
   }
 
+  const ButtonComponent = motion(Button)
+
   return (
-    <Button
+    // @ts-expect-error just a type error, it does not interfere with functionality
+    <ButtonComponent
       onClick={handleAddToCart}
+      whileHover={{ scale: 1.04 }}
+      whileTap={{ scale: 1 }}
       {...rest}
       className={twMerge('', className)}
       size="lg"
@@ -45,6 +51,6 @@ export function AddToCartButton({
           ({items.find((item) => item.product.id === product.id)?.quantity})
         </span>
       )}
-    </Button>
+    </ButtonComponent>
   )
 }

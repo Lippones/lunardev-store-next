@@ -10,7 +10,7 @@ export function ToggleTheme() {
       onClick={() => {
         setTheme(theme === 'dark' ? 'light' : 'dark')
       }}
-      className=""
+      className="hover:text-primary"
     >
       {theme === 'dark' ? <Sun /> : <Moon />}
     </button>

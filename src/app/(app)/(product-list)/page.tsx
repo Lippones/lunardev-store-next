@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default async function ProductsPage() {
   return (
     <div>
-      <div>
+      <div className="mb-2">
         <h1 className="text-4xl font-bold">Produtos</h1>
         <p className="text-zinc-400 text-sm mt-2">
           Aqui estão todos os produtos disponíveis.

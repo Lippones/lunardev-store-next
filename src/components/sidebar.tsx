@@ -36,7 +36,7 @@ export function SidebarItem({ children, className }: SidebarGenericProps) {
   return (
     <div
       className={twMerge(
-        'flex items-center text-muted text-sm space-x-2',
+        'flex items-center text-muted text-sm space-x-2 hover:text-primary',
         className,
       )}
     >
