@@ -1,5 +1,5 @@
 'use client'
-import { ComponentProps } from 'react'
+import { ComponentProps, useState } from 'react'
 import { Button } from './ui/button'
 import { twMerge } from 'tailwind-merge'
 import { useCartStore } from '@/store/cart'
@@ -15,12 +15,20 @@ export function AddToCartButton({
   className,
   ...rest
 }: AddToCartButtonProps) {
-  const { addItem } = useCartStore((state) => ({
+  const [added, setAdded] = useState(false)
+
+  const { addItem, items } = useCartStore((state) => ({
     addItem: state.addItem,
+    items: state.items,
   }))
 
   function handleAddToCart() {
     addItem(product)
+    setAdded(true)
+
+    setTimeout(() => {
+      setAdded(false)
+    }, 2000)
   }
 
   return (
@@ -30,7 +38,13 @@ export function AddToCartButton({
       className={twMerge('', className)}
       size="lg"
     >
-      <ShoppingCart className="size-4 mr-2" /> Add to Cart
+      <ShoppingCart className="size-4 mr-2" />{' '}
+      {added ? 'Adicionado com sucesso!' : 'Add to Cart'}{' '}
+      {items.find((item) => item.product.id === product.id) && !added && (
+        <span>
+          ({items.find((item) => item.product.id === product.id)?.quantity})
+        </span>
+      )}
     </Button>
   )
 }
