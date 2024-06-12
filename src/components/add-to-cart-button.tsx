@@ -39,7 +39,7 @@ export function AddToCartButton({
       size="lg"
     >
       <ShoppingCart className="size-4 mr-2" />{' '}
-      {added ? 'Adicionado com sucesso!' : 'Add to Cart'}{' '}
+      {added ? 'Adicionado com sucesso!' : 'Adicionar ao carrinho'}{' '}
       {items.find((item) => item.product.id === product.id) && !added && (
         <span>
           ({items.find((item) => item.product.id === product.id)?.quantity})
