@@ -82,7 +82,7 @@ Para mais informações, entre em contato:
 
 - **Nome:** Filipe Vieira
 - **Email:** filipe68ft@hotmail.com
-- **LinkedIn:** [Seu LinkedIn](https://www.linkedin.com/in/filipe-vieira-03199720b)
+- **LinkedIn:** [LinkedIn](https://www.linkedin.com/in/filipe-vieira-03199720b)
 
 
 Obrigado por avaliar o meu teste técnico! Espero que gostem da Lunar Store.
