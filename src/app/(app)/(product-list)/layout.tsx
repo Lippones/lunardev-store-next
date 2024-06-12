@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { ProductsSidebar } from './_components/products-sidebar'
 
 export default function ProductsLayout({
@@ -7,7 +8,9 @@ export default function ProductsLayout({
 }) {
   return (
     <div className="min-h-svh flex flex-col lg:flex-row p-6">
-      <ProductsSidebar />
+      <Suspense fallback={null}>
+        <ProductsSidebar />
+      </Suspense>
       <div className="flex flex-1 flex-col gap-4 max-lg:mt-6 lg:px-8">
         {children}
       </div>

@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { ProductsList } from './_components/products-list'
 import { Metadata } from 'next'
 
@@ -15,7 +16,9 @@ export default async function ProductsPage() {
           Aqui estão todos os produtos disponíveis.
         </p>
       </div>
-      <ProductsList />
+      <Suspense>
+        <ProductsList />
+      </Suspense>
     </div>
   )
 }
